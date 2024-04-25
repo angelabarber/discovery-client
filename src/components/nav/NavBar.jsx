@@ -17,9 +17,17 @@ export const NavBar = () => {
         <li className="navbar__item">
           <NavLink
             className="hover:text-[#A1E8AF] transition-colors duration-300"
-            to={"/discoveries"}
+            to={"/artifacts"}
           >
             Discoveries
+          </NavLink>
+        </li>
+        <li className="navbar__item">
+          <NavLink
+            className="hover:text-[#A1E8AF] transition-colors duration-300"
+            to={"/discoveries"}
+          >
+            New Discovery
           </NavLink>
         </li>
         {localStorage.getItem("discovery_token") === null && (
