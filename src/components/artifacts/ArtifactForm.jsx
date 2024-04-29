@@ -37,20 +37,23 @@ export const ArtifactForm = () => {
         setFormData(artifact)
       })
     }
-  }, [id])
+  }, [])
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [e.target.name]:
+        e.target.name === "site" ? parseInt(e.target.value) : e.target.value,
     })
   }
 
   const handleSubmit = () => {
     // formData gets sent to the service
     if (id) {
-      updateArtifact(id, formData).then(() => {
-        navigate(`/artifact/${id}`)
+      const copy = formData
+      copy.site = formData.site.id
+      updateArtifact(id, copy).then(() => {
+        navigate(`/artifacts/${id}`)
       })
     } else {
       createArtifact(formData).then(() => {
@@ -88,9 +91,8 @@ export const ArtifactForm = () => {
         <label htmlFor="site">Site:</label>
         <select
           id="site"
-          name="siteId"
-          // value={formData.siteId}
-          value={formData.siteId || ""}
+          name="site"
+          value={formData.site.id || formData.site}
           onChange={handleChange}
         >
           <option value="">Select a site</option>
