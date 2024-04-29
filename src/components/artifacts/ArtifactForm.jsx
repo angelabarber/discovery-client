@@ -3,27 +3,41 @@ import { getSites } from "../services/siteService"
 import { getTraits } from "../services/traitService"
 import { useNavigate, useParams } from "react-router-dom"
 import { MaterialCheckbox } from "../traits/MaterialCheckbox.jsx"
-import { createArtifact, updateArtifact } from "../services/artifactService.jsx"
+import {
+  createArtifact,
+  getArtifactByArtifactId,
+  updateArtifact,
+} from "../services/artifactService.jsx"
 
-export const NewDiscoveryForm = () => {
+export const ArtifactForm = () => {
   const [sites, setSites] = useState([])
   const [traits, setTraits] = useState([])
   const [formData, setFormData] = useState({
     site: "",
     name: "",
     description: "",
-    location: [],
-    material: [],
-    condition: [],
+    imageUrl: "",
+    traits: [],
   })
 
-  const { id } = useParams
-  const navigate = useNavigate
+  const { id } = useParams()
+  const navigate = useNavigate()
 
   useEffect(() => {
     getSites().then(setSites)
     getTraits().then(setTraits)
   }, [])
+
+  useEffect(() => {
+    if (id) {
+      getArtifactByArtifactId(id).then((artifact) => {
+        delete artifact.user
+        delete artifact.id
+        artifact.traits = artifact.traits.map((trait) => trait.id)
+        setFormData(artifact)
+      })
+    }
+  }, [id])
 
   const handleChange = (e) => {
     setFormData({
@@ -74,13 +88,14 @@ export const NewDiscoveryForm = () => {
         <label htmlFor="site">Site:</label>
         <select
           id="site"
-          name="site"
-          value={formData.site}
+          name="siteId"
+          // value={formData.siteId}
+          value={formData.siteId || ""}
           onChange={handleChange}
         >
           <option value="">Select a site</option>
-          {sites.map((site) => (
-            <option key={site.id} value={site.id}>
+          {sites.map((site, index) => (
+            <option key={index} value={site.id}>
               {site.name}
             </option>
           ))}
@@ -106,6 +121,16 @@ export const NewDiscoveryForm = () => {
           value={formData.description}
           onChange={handleChange}
         ></textarea>
+      </div>
+      <div>
+        <label htmlFor="imageUrl">Image URL:</label>
+        <input
+          type="text"
+          id="imageUrl"
+          name="imageUrl"
+          value={formData.imageUrl}
+          onChange={handleChange}
+        />
       </div>
       <div>
         <MaterialCheckbox formData={formData} setFormData={setFormData} />

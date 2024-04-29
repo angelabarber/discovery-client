@@ -45,3 +45,15 @@ export const updateArtifact = (id, artifactObj) => {
     body: JSON.stringify(artifactObj),
   })
 }
+
+export const deleteArtifact = (id) => {
+  return fetch(`http://localhost:8000/artifacts/${id}`, {
+    method: "DELETE",
+    headers: {
+      Authorization: `Token ${
+        JSON.parse(localStorage.getItem("discovery_token")).token
+      }`,
+      "Content-Type": "application/json",
+    },
+  })
+}

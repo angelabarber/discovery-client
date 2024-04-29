@@ -25,7 +25,7 @@ export const NavBar = () => {
         <li className="navbar__item">
           <NavLink
             className="hover:text-[#A1E8AF] transition-colors duration-300"
-            to={"/discoveries"}
+            to={"/artifacts/new"}
           >
             New Discovery
           </NavLink>

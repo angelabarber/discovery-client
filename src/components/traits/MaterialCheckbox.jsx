@@ -14,7 +14,7 @@ export const MaterialCheckbox = ({ formData, setFormData }) => {
     getTraits().then((traits) => {
       // Filter traits with categoryName === "Materials"
       const materialTraits = traits.filter(
-        (trait) => trait.categoryName === "Materials"
+        (trait) => trait.category_name === "material"
       )
       setMaterials(materialTraits)
     })
@@ -22,17 +22,17 @@ export const MaterialCheckbox = ({ formData, setFormData }) => {
   //make a handler to monitor changes
 
   const handleMaterialChange = (traitId) => {
-    const isSelected = formData.materials.includes(traitId)
+    const isSelected = formData.traits.includes(traitId)
     if (isSelected) {
       //if trait is already selected, remove it from the list
       setFormData({
         ...formData,
-        materials: formData.materials.filter((id) => id !== traitId),
+        traits: formData.traits.filter((id) => id !== traitId),
       })
     } else {
       setFormData({
         ...formData,
-        materials: [...formData.materials, traitId],
+        traits: [...formData.traits, traitId],
       })
     }
   }
@@ -44,12 +44,12 @@ export const MaterialCheckbox = ({ formData, setFormData }) => {
   return (
     <div>
       <label>Materials:</label>
-      {materials.map((trait) => (
-        <div key={trait.id}>
+      {materials.map((trait, index) => (
+        <div key={index}>
           <label>
             <input
               type="checkbox"
-              checked={formData.materials.includes(trait.id)}
+              checked={formData.traits.includes(trait.id)}
               onChange={() => handleMaterialChange(trait.id)}
             />
             {trait.name}
@@ -59,3 +59,46 @@ export const MaterialCheckbox = ({ formData, setFormData }) => {
     </div>
   )
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// export const MaterialCheckbox = ({ formData, setFormData }) => {
+//   const [materials, setMaterials] = useState([])
+
+//   useEffect(() => {
+//     getTraits().then((traits) => {
+//       const materialTraits = traits.filter(
+//         (trait) => trait.category_name === "material"
+//       )
+//       setMaterials(materialTraits)
+//     })
+//   }, [])
+
+//   const handleMaterialChange = (traitId) => {
+//     const isSelected = formData.materialTraits.includes(traitId)
+//     const updatedMaterialTraits = isSelected
+//       ? formData.materialTraits.filter((id) => id !== traitId)
+//       : [...formData.materialTraits, traitId]
+
+//     setFormData({
+//       ...formData,
+//       materialTraits: updatedMaterialTraits,
+//     })
+//   }
+
+//   return (
+//     <div>
+//       <label>Materials:</label>
+//       {materials.map((trait, index) => (
+//         <div key={index}>
+//           <label>
+//             <input
+//               type="checkbox"
+//               checked={formData.materialTraits.includes(trait.id)}
+//               onChange={() => handleMaterialChange(trait.id)}
+//             />
+//             {trait.name}
+//           </label>
+//         </div>
+//       ))}
+//     </div>
+//   )
+// }
