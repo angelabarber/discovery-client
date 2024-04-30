@@ -15,10 +15,12 @@ export const ApplicationViews = () => {
         <Route path="/register" element={<Register />} />
         <Route element={<Authorized />}>
           <Route path="/" element={<App />} />
-          <Route path="/artifacts" element={<ArtifactList />} />
-          <Route path="/artifacts/new" element={<ArtifactForm />} />
-          <Route path="/artifacts/:id" element={<ArtifactDetails />} />
-          <Route path="/artifacts/:id/edit" element={<ArtifactForm />} />
+          <Route path="/artifacts">
+            <Route index element={<ArtifactList />} />
+            <Route path="new" element={<ArtifactForm />} />
+            <Route path=":id" element={<ArtifactDetails />} />
+            <Route path=":id/edit" element={<ArtifactForm />} />
+          </Route>
         </Route>
       </Routes>
     </BrowserRouter>

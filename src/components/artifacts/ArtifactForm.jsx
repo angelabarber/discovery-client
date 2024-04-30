@@ -8,6 +8,8 @@ import {
   getArtifactByArtifactId,
   updateArtifact,
 } from "../services/artifactService.jsx"
+import { ConditionCheckbox } from "../traits/ConditionCheckbox.jsx"
+import { LocationCheckbox } from "../traits/LocationCheckbox.jsx"
 
 export const ArtifactForm = () => {
   const [sites, setSites] = useState([])
@@ -136,6 +138,12 @@ export const ArtifactForm = () => {
       </div>
       <div>
         <MaterialCheckbox formData={formData} setFormData={setFormData} />
+      </div>
+      <div>
+        <ConditionCheckbox formData={formData} setFormData={setFormData} />
+      </div>
+      <div>
+        <LocationCheckbox formData={formData} setFormData={setFormData} />
       </div>
       <button type="button" onClick={handleSubmit}>
         {id ? "Update Artifact" : "Create Artifact"}
