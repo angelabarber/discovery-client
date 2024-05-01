@@ -30,7 +30,7 @@ export const ArtifactDetails = () => {
     <div>
       <h2>{artifact.name}</h2>
       <p>{artifact.description}</p>
-      <img src={artifact.image_url} alt={artifact.name} />
+      <img src={artifact.imageUrl} alt={artifact.name} />
       <p>Site: {artifact.site && artifact.site.name}</p>
       <p>Traits:</p>
       <ul>
