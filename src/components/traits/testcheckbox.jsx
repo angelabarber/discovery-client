@@ -30,9 +30,8 @@ export const ConditionCheckbox = ({ formData, setFormData }) => {
   }
 
   return (
-    <div className="mb-4">
-      {/* <h3>Condition:</h3> */}
-      {/* <label>Artifact Condition:</label> */}
+    <div>
+      <label>Artifact Condition:</label>
       {conditions.map((trait, index) => (
         <div key={index}>
           <label>

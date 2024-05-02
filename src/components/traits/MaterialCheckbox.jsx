@@ -42,8 +42,9 @@ export const MaterialCheckbox = ({ formData, setFormData }) => {
   //handle on change
 
   return (
-    <div>
-      <label>Materials:</label>
+    <div className="mb-4">
+      {/* <h3>Material:</h3> */}
+      {/* <label>Materials:</label> */}
       {materials.map((trait, index) => (
         <div key={index}>
           <label>

@@ -30,8 +30,9 @@ export const LocationCheckbox = ({ formData, setFormData }) => {
   }
 
   return (
-    <div>
-      <label>Location Found:</label>
+    <div className="mb-4">
+      {/* <label>Location Found:</label> */}
+      {/* <h3>Location:</h3> */}
       {locations.map((trait, index) => (
         <div key={index}>
           <label>

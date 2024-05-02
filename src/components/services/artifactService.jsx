@@ -34,6 +34,7 @@ export const getArtifactByArtifactId = (id) => {
 }
 
 export const updateArtifact = (id, artifactObj) => {
+  console.log(artifactObj)
   return fetch(`http://localhost:8000/artifacts/${id}`, {
     method: "PUT",
     headers: {
