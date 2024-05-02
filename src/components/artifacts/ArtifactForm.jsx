@@ -33,8 +33,8 @@ export const ArtifactForm = () => {
   useEffect(() => {
     if (id) {
       getArtifactByArtifactId(id).then((artifact) => {
-        delete artifact.user
-        delete artifact.id
+        // delete artifact.user
+        // delete artifact.id
         artifact.site = artifact.site.id //this is new
         artifact.traits = artifact.traits.map((trait) => trait.id)
         setFormData(artifact)
@@ -53,9 +53,8 @@ export const ArtifactForm = () => {
   const handleSubmit = () => {
     // formData gets sent to the service
     if (id) {
-      const copy = structuredClone(formData) //this was just =formData
-      copy.site = formData.site.id
-      updateArtifact(id, copy).then(() => {
+      // const copy = structuredClone(formData) //this was just =formData
+      updateArtifact(id, formData).then(() => {
         navigate(`/artifacts/${id}`)
       })
     } else {
@@ -244,7 +243,7 @@ export const ArtifactForm = () => {
 
       <div className="mb-4">
         <h3 className="text-indigo-900 font-bold mb-2">Material:</h3>
-        <div className="bg-indigo-300 rounded-md p-4">
+        <div className="bg-indigo-400 rounded-md p-4">
           <MaterialCheckbox formData={formData} setFormData={setFormData} />
         </div>
       </div>

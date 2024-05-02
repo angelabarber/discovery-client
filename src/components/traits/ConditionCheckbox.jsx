@@ -4,6 +4,7 @@ import { getTraits } from "../services/traitService.jsx"
 
 export const ConditionCheckbox = ({ formData, setFormData }) => {
   const [conditions, setCondition] = useState([])
+  const [radio, setRadio] = useState()
 
   useEffect(() => {
     getTraits().then((traits) => {
@@ -11,22 +12,28 @@ export const ConditionCheckbox = ({ formData, setFormData }) => {
         (trait) => trait.category_name === "condition"
       )
       setCondition(conditionTraits)
+      for (const trait of conditionTraits) {
+        if (formData.traits.includes(trait.id)) {
+          setRadio(trait.id)
+        }
+      }
     })
   }, [])
 
   const handleConditionChange = (traitId) => {
-    const isSelected = formData.traits.includes(traitId)
-    if (isSelected) {
-      setFormData({
-        ...formData,
-        traits: formData.traits.filter((id) => id !== traitId),
-      })
-    } else {
-      setFormData({
-        ...formData,
-        traits: [...formData.traits, traitId],
-      })
-    }
+    setFormData({
+      ...formData,
+      traits: [...formData.traits.filter((id) => id !== radio), traitId],
+    })
+    setRadio(traitId)
+    // const isSelected = formData.traits.includes(traitId)
+    // if (isSelected) {
+    // } else {
+    //   setFormData({
+    //     ...formData,
+    //     traits: [...formData.traits, traitId],
+    //   })
+    // }
   }
 
   return (
