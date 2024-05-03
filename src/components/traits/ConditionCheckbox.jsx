@@ -12,18 +12,24 @@ export const ConditionCheckbox = ({ formData, setFormData }) => {
         (trait) => trait.category_name === "condition"
       )
       setCondition(conditionTraits)
+      // debugger
       for (const trait of conditionTraits) {
         if (formData.traits.includes(trait.id)) {
           setRadio(trait.id)
         }
       }
     })
-  }, [])
+  }, [formData])
 
   const handleConditionChange = (traitId) => {
+    // debugger
+    const newFormData = [
+      ...formData.traits.filter((id) => id !== radio),
+      traitId,
+    ]
     setFormData({
       ...formData,
-      traits: [...formData.traits.filter((id) => id !== radio), traitId],
+      traits: newFormData,
     })
     setRadio(traitId)
     // const isSelected = formData.traits.includes(traitId)
