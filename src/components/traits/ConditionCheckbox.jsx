@@ -12,7 +12,7 @@ export const ConditionCheckbox = ({ formData, setFormData }) => {
         (trait) => trait.category_name === "condition"
       )
       setCondition(conditionTraits)
-      // debugger
+
       for (const trait of conditionTraits) {
         if (formData.traits.includes(trait.id)) {
           setRadio(trait.id)

@@ -250,7 +250,7 @@ export const ArtifactForm = () => {
 
       <div className="mb-4">
         <h3 className="text-indigo-900 font-bold mb-2">Condition:</h3>
-        <div className="bg-indigo-300 rounded-md p-4">
+        <div className="bg-indigo-400 rounded-md p-4">
           <ConditionCheckbox
             formData={formData}
             setFormData={setFormData}
@@ -261,7 +261,7 @@ export const ArtifactForm = () => {
 
       <div className="mb-4">
         <h3 className="text-indigo-900 font-bold mb-2">Location:</h3>
-        <div className="bg-[#C0BABC]  rounded-md p-4">
+        <div className="bg-indigo-400  rounded-md p-4">
           <LocationCheckbox
             formData={formData}
             setFormData={setFormData}
