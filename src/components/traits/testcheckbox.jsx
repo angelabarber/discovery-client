@@ -4,7 +4,6 @@ import { getTraits } from "../services/traitService.jsx"
 
 export const ConditionCheckbox = ({ formData, setFormData }) => {
   const [conditions, setCondition] = useState([])
-  const [radio, setRadio] = useState()
 
   useEffect(() => {
     getTraits().then((traits) => {
@@ -12,40 +11,27 @@ export const ConditionCheckbox = ({ formData, setFormData }) => {
         (trait) => trait.category_name === "condition"
       )
       setCondition(conditionTraits)
-
-      for (const trait of conditionTraits) {
-        if (formData.traits.includes(trait.id)) {
-          setRadio(trait.id)
-        }
-      }
     })
-  }, [formData])
+  }, [])
 
   const handleConditionChange = (traitId) => {
-    // debugger
-    const newFormData = [
-      ...formData.traits.filter((id) => id !== radio),
-      traitId,
-    ]
-    setFormData({
-      ...formData,
-      traits: newFormData,
-    })
-    setRadio(traitId)
-    // const isSelected = formData.traits.includes(traitId)
-    // if (isSelected) {
-    // } else {
-    //   setFormData({
-    //     ...formData,
-    //     traits: [...formData.traits, traitId],
-    //   })
-    // }
+    const isSelected = formData.traits.includes(traitId)
+    if (isSelected) {
+      setFormData({
+        ...formData,
+        traits: formData.traits.filter((id) => id !== traitId),
+      })
+    } else {
+      setFormData({
+        ...formData,
+        traits: [...formData.traits, traitId],
+      })
+    }
   }
 
   return (
-    <div className="mb-4">
-      {/* <h3>Condition:</h3> */}
-      {/* <label>Artifact Condition:</label> */}
+    <div>
+      <label>Artifact Condition:</label>
       {conditions.map((trait, index) => (
         <div key={index}>
           <label>
