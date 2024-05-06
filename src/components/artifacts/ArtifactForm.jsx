@@ -187,7 +187,8 @@ export const ArtifactForm = () => {
           <option value="">Select a site</option>
           {sites.map((site, index) => (
             <option key={index} value={site.id}>
-              {site.name}
+              {/* {site.name} */}
+              {site.name.charAt(0).toUpperCase() + site.name.slice(1)}
             </option>
           ))}
         </select>
