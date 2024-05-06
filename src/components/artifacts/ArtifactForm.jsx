@@ -184,7 +184,7 @@ export const ArtifactForm = () => {
           onChange={handleChange}
           className="shadow appearance-none border rounded w-full py-2 px-3 text-indigo-900 leading-tight focus:outline-none focus:shadow-outline"
         >
-          <option value="">Select a site</option>
+          <option value="">Select a Site</option>
           {sites.map((site, index) => (
             <option key={index} value={site.id}>
               {/* {site.name} */}
