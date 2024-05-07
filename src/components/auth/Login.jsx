@@ -42,7 +42,7 @@ export const Login = () => {
 
       <section>
         <form className="form--login" onSubmit={handleLogin}>
-          <h1 className="text-4xl mt-7 mb-3">Gamer Rater</h1>
+          <h1 className="text-4xl mt-7 mb-3">Ancient Discoveries</h1>
           <h2 className="text-xl mb-10">Please sign in</h2>
           <fieldset className="mb-4">
             <label htmlFor="inputEmail"> Email address </label>
@@ -71,7 +71,7 @@ export const Login = () => {
           <fieldset>
             <button
               type="submit"
-              className="button p-3 rounded-md bg-blue-800 text-blue-100"
+              className="bg-[#94C595] hover:bg-[#A1E8AF] text-white font-bold py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all mr-2"
             >
               Sign in
             </button>

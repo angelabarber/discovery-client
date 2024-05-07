@@ -8,7 +8,7 @@ export const NavBar = () => {
       <ul className="flex flex-wrap space-x-12 items-center">
         <li className="navbar__item">
           <NavLink
-            className="hover:text-[#A1E887] transition-colors duration-300"
+            className="hover:text-[#A1E887] transition-colors duration-300 text-lg"
             to={"/sites"}
           >
             Sites
@@ -16,7 +16,7 @@ export const NavBar = () => {
         </li>
         <li className="navbar__item">
           <NavLink
-            className="hover:text-[#A1E887] transition-colors duration-300"
+            className="hover:text-[#A1E887] transition-colors duration-300 text-lg"
             to={"/artifacts"}
           >
             Discoveries
@@ -24,7 +24,7 @@ export const NavBar = () => {
         </li>
         <li className="navbar__item">
           <NavLink
-            className="hover:text-[#A1E887] transition-colors duration-300"
+            className="hover:text-[#A1E887] transition-colors duration-300 text-lg"
             to={"/artifacts/new"}
           >
             New Discovery
@@ -54,7 +54,7 @@ export const NavBar = () => {
       {localStorage.getItem("discovery_token") !== null && (
         <div>
           <button
-            className="hover:text-[#80B192] transition-colors duration-300"
+            className="hover:text-[#80B192] transition-colors duration-300 text-lg"
             onClick={() => {
               localStorage.removeItem("discovery_token")
               navigate("/login")
