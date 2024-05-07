@@ -4,16 +4,8 @@
   padding: 2rem;
   text-align: center;
 }
-/* a {
-  text-decoration: none;
-  color: inherit;
-}
 
-/* Add hover effect to links */
-/* a:hover {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adjust the shadow properties as needed */
-/* } */
-/* .logo {
+.logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -24,9 +16,9 @@
 }
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
-} */
+}
 
-/* @keyframes logo-spin {
+@keyframes logo-spin {
   from {
     transform: rotate(0deg);
   }
@@ -47,4 +39,4 @@
 
 .read-the-docs {
   color: #888;
-} */
+}
