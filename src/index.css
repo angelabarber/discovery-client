@@ -2,6 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* styles.css */
+body {
+  background-color: #493548;
+  color: #fff;
+}
+/* a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Add hover effect to links */
+/* a:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Adjust the shadow properties as needed */
+/* } */
+
 /* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
